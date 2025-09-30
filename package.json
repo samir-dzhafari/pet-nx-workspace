@@ -1,8 +1,11 @@
 {
   "name": "@pet-nx-workspace/source",
+  "homepage": "https://<username>.github.io/<repo-name>",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "deploy": "gh-pages -d dist/apps/articles-app"
+  },
   "private": true,
   "dependencies": {
     "@fontsource/roboto": "^5.2.8",
