@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - Articles
   pull_request:
 
 permissions:
