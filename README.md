@@ -1,82 +1,87 @@
 # PetNxWorkspace
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer">
+  <img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45">
+</a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+✨ Добро пожаловать в ваш NX Workspace! ✨
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+Этот проект настроен для работы с приложением `articles-app` и библиотекой `ui`.
 
-## Finish your CI setup
+---
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/i5Qc0qHb4e)
+## Быстрый старт
 
+1. Установите зависимости:
 
-## Run tasks
-
-To run the dev server for your app, use:
-
-```sh
-npx nx serve Articles-app
+```bash
+npm install
 ```
 
-To create a production bundle:
+2. Инициализируйте **Mock Service Worker** для приложения `articles-app`:
 
-```sh
-npx nx build Articles-app
+```bash
+cd apps/articles-app
+npx msw init public/ --save
+cd ../..
 ```
 
-To see all available targets to run for a project, run:
+3. Соберите библиотеку `ui`:
 
-```sh
-npx nx show project Articles-app
+```bash
+nx build ui
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+4. Запустите приложение `articles-app`:
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app demo
+```bash
+nx serve articles-app
 ```
 
-To generate a new library, use:
+5. Перейдите в браузере по адресу:
+   [http://localhost:4200](http://localhost:4200)
 
-```sh
-npx nx g @nx/react:lib mylib
+---
+
+## Полезные команды Nx
+
+* **Сборка приложения для продакшена:**
+
+```bash
+nx build articles-app
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+* **Список всех доступных целей проекта:**
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+nx show project articles-app
+```
 
+* **Создание нового приложения:**
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+npx nx g @nx/react:app my-app
+```
 
-## Install Nx Console
+* **Создание новой библиотеки:**
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+```bash
+npx nx g @nx/react:lib my-lib
+```
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+* **Граф зависимостей проекта:**
 
-## Useful links
+```bash
+npx nx graph
+```
 
-Learn more:
+---
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Дополнительно
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+* [Документация Nx](https://nx.dev)
+* [Nx Console (VSCode/IntelliJ)](https://nx.dev/getting-started/editor-setup) — визуальный интерфейс для генерации кода и запуска задач.
+
+---
+
+Теперь вы готовы разрабатывать и тестировать приложение локально!
